@@ -1,21 +1,73 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-#tableContainer {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  input {
+    padding: 10px;
+  }
+
+  #tableContainer {
     display: flex;
     justify-content: center;
     margin-top: 100px;
-  }
-
-  #deleteButton {
-    color: white;
-    background-color: red;
   }
   
   th,td {
     border: 1px solid black;
     padding: 5px;
+  }
+
+  #open_modal {
+    padding: 10px 50px;
+    margin-top: 20px;
+  }
+
+  #modal_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #modal_container.show {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  #modal {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 14px;
+  }
+
+  #modal_form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  #modal_form button {
+    padding: 10px 30px;
   }

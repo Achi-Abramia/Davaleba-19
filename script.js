@@ -1,4 +1,4 @@
-// დავალება 1
+  // დავალება 1
 
 // მოცემულია მასივი
 // ჯავასკრიპტით გამოიტანეთ ეს ინფორმაცია ცხრილის სახით, თითოეულ მწკრივს (tr) ბოლოში  უნდა ჰქონდეს  ღილაკი  delete.
@@ -58,7 +58,7 @@ const users = [
     last_name: "Howell",
     
     }
-    ];
+    ]
 
 
     const tableContainer = document.createElement("div")
@@ -94,13 +94,28 @@ const users = [
       const deleteButton = document.createElement("button")
       deleteButton.textContent= "Delete"
       deleteButton.addEventListener("click", () => {
-        table.removeChild(row) 
-      })
+      table.removeChild(row) 
+    })
       removeUser.appendChild(deleteButton)
       row.appendChild(removeUser)
       table.appendChild(row)
     })
 
+    const openModal = document.createElement("button")
+    const modalContainer = document.getElementById("modal_container")
+    const modalAdd = document.getElementById("modal_add")
+    const modalClose = document.getElementById("modal_close")
+    openModal.textContent = "Add"
+    openModal.setAttribute("id", "open_modal")
+    document.body.appendChild(openModal)
+
+    openModal.addEventListener("click", () => {
+      modalContainer.classList.add("show")
+    })
+
+    modalClose.addEventListener("click", () => {
+      modalContainer.classList.remove("show")
+    })
 
 
     
