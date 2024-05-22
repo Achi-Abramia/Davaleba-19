@@ -123,8 +123,10 @@ const users = [
     const modalEmail = document.getElementById("modal_email")
     const modalFirstName = document.getElementById("modal_first_name")
     const modalLastName = document.getElementById("modal_last_name")
-    const status = document.createElement("span")
+    const status = document.createElement("div")
     const modalForm = document.getElementById("modal_form")
+
+
 
     modalForm.appendChild(status)
     modalForm.addEventListener("submit", (e) => {
@@ -137,6 +139,14 @@ const users = [
         throw new Error("ID shouldn't be empty")
       } else {
         modalId.style.border = "2px solid green"
+        status.textContent = "ID is valid"
+        status.style.color = "green"
+      }
+      if (modalFirstName.value === "") {
+        modalFirstName.style.border = "2px solid red"
+        throw new Error("First Name shouldn't be empty")
+      } else {
+        modalFirstName.style.border = "2px solid green"
         status.textContent = "ID is valid"
         status.style.color = "green"
       }
