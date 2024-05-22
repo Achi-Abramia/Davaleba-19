@@ -15,77 +15,94 @@
 // closeზე დაჭერიას უნდა დახუროთ მოდალი.
 
 
-// const users = [
-//     {
-//     id: 7,
-//     email: "michael.lawson@reqres.in",
-//     first_name: "Michael",
-//     last_name: "Lawson",
+const users = [
+    {
+    id: 7,
+    email: "michael.lawson@reqres.in",
+    first_name: "Michael",
+    last_name: "Lawson",
+
+    },
+    {
+    id: 8,
+    email: "lindsay.ferguson@reqres.in",
+    first_name: "Lindsay",
+    last_name: "Ferguson",
     
-//     },
-//     {
-//     id: 8,
-//     email: "lindsay.ferguson@reqres.in",
-//     first_name: "Lindsay",
-//     last_name: "Ferguson",
+    },
+    {
+    id: 9,
+    email: "tobias.funke@reqres.in",
+    first_name: "Tobias",
+    last_name: "Funke",
     
-//     },
-//     {
-//     id: 9,
-//     email: "tobias.funke@reqres.in",
-//     first_name: "Tobias",
-//     last_name: "Funke",
+    },
+    {
+    id: 10,
+    email: "byron.fields@reqres.in",
+    first_name: "Byron",
+    last_name: "Fields",
     
-//     },
-//     {
-//     id: 10,
-//     email: "byron.fields@reqres.in",
-//     first_name: "Byron",
-//     last_name: "Fields",
+    },
+    {
+    id: 11,
+    email: "george.edwards@reqres.in",
+    first_name: "George",
+    last_name: "Edwards",
     
-//     },
-//     {
-//     id: 11,
-//     email: "george.edwards@reqres.in",
-//     first_name: "George",
-//     last_name: "Edwards",
+    },
+    {
+    id: 12,
+    email: "rachel.howell@reqres.in",
+    first_name: "Rachel",
+    last_name: "Howell",
     
-//     },
-//     {
-//     id: 12,
-//     email: "rachel.howell@reqres.in",
-//     first_name: "Rachel",
-//     last_name: "Howell",
+    }
+    ];
+
+
+    const tableContainer = document.createElement("div")
+    tableContainer.setAttribute("id", "tableContainer")
+    document.body.appendChild(tableContainer)
     
-//     }
-//     ];
+    const table = document.createElement("table")
+    tableContainer.appendChild(table)
+    table.setAttribute("id", "infoTable")
     
-//     const tableContainer = document.createElement("div")
-//     tableContainer.setAttribute("id", "tableContainer")
-//     document.body.appendChild(tableContainer)
+    const headerRow = document.createElement("tr")
+    table.appendChild(headerRow)
+
+    const headers = ["ID", "Email", "First Name", "Last Name", "Remove"]
     
-    
-//     const table = document.createElement("table")
-//     tableContainer.appendChild(table)
-//     table.setAttribute("id", "infoTable")
-    
-//     const headerRow = document.createElement("tr")
-//     table.appendChild(headerRow)
-    
-//     const headers = ["First Name", "Last Name", "Email", "Delete"]
-    
-//     headers.forEach(headerContent => {
-//       const header = document.createElement("th")
-//       const textNode = document.createTextNode(headerContent)
-//       header.appendChild(textNode)
-//       headerRow.appendChild(header)
-//     })
-    
-    
-    
-    
-    
-    
+    headers.forEach(headerContent => {
+      const header = document.createElement("th")
+      const textNode = document.createTextNode(headerContent)
+      header.appendChild(textNode)
+      headerRow.appendChild(header)
+    })
+
+    users.forEach(user => { 
+      const row = document.createElement("tr")
+
+      Object.values(user).forEach(text => {
+        const cell = document.createElement("td")
+        const textNode = document.createTextNode(text)
+        cell.appendChild(textNode)
+        row.appendChild(cell)
+      })
+      const removeUser = document.createElement("td")
+      const deleteButton = document.createElement("button")
+      deleteButton.textContent= "Delete"
+      deleteButton.addEventListener("click", () => {
+        table.removeChild(row) 
+      })
+      removeUser.appendChild(deleteButton)
+      row.appendChild(removeUser)
+      table.appendChild(row)
+    })
+
+
+
     
     
     
@@ -145,22 +162,22 @@
     
     // პირველი ხერხი
     
-    // const testTextLength = async () => {
-    //   try {
-    //     const result = await textLength("achiabramia")
-    //     console.log(result)
-    //   }
-    //   catch (error) {
-    //     console.log(error)
-    //   }
-    // }
+    const testTextLength = async () => {
+      try {
+        const result = await textLength("achiabramia")
+        console.log(result)
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
     
-    // testTextLength()
+    testTextLength()
     
     // მეორე ხერხი
     
-    textLength("achiabramia").then((data) => {
-      cosnole.log(data)
+    textLength("achi").then((data) => {
+      console.log(data)
     }).catch((error) => {
       console.log(error)
     })
