@@ -100,6 +100,7 @@ const users = [
       row.appendChild(removeUser)
       table.appendChild(row)
     })
+    
 
     const openModal = document.createElement("button")
     const modalContainer = document.getElementById("modal_container")
@@ -117,6 +118,34 @@ const users = [
       modalContainer.classList.remove("show")
     })
 
+
+    const modalId = document.getElementById("modal_id")
+    const modalEmail = document.getElementById("modal_email")
+    const modalFirstName = document.getElementById("modal_first_name")
+    const modalLastName = document.getElementById("modal_last_name")
+    const status = document.createElement("span")
+    const modalForm = document.getElementById("modal_form")
+
+    modalForm.appendChild(status)
+    modalForm.addEventListener("submit", (e) => {
+      e.preventDefault() 
+    })
+
+    try {
+      if (modalId.value.length === 0) {
+        modalId.style.border = "2px solid red"
+        throw new Error("ID shouldn't be empty")
+      } else {
+        modalId.style.border = "2px solid green"
+        status.textContent = "ID is valid"
+        status.style.color = "green"
+      }
+    } catch (e) {
+      status.textContent = e.message
+      status.style.color = "red"
+    }
+
+    
 
     
     
