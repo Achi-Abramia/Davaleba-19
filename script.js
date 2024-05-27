@@ -107,6 +107,7 @@ const users = [
     const modalAdd = document.getElementById("modal_add")
     const modalClose = document.getElementById("modal_close")
     openModal.textContent = "Add"
+    
     openModal.setAttribute("id", "open_modal")
     document.body.appendChild(openModal)
 
@@ -131,7 +132,7 @@ const users = [
     modalForm.appendChild(status)
     modalForm.addEventListener("submit", (e) => {
       e.preventDefault() 
-    })
+    
 
     try {
       if (modalId.value.length === 0) {
@@ -154,6 +155,8 @@ const users = [
       status.textContent = e.message
       status.style.color = "red"
     }
+
+  })
 
     
 
